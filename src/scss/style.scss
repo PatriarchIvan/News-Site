@@ -1,0 +1,36 @@
+@import 'reset';
+
+.header {
+    max-width: 1170px;
+    margin: 0 auto;
+    width: 100%;
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+
+    & .filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        &__source,
+        &__country, 
+        &__category {
+            display: flex;
+            select {
+                font-size: 22px;
+                text-align: center;
+            }
+        }
+    }
+}
