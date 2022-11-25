@@ -11,37 +11,37 @@
 
 <body>
     <header class="header">
-        <h1 class="title">News.Fast.Pretty.Find everything you want!</h1>
+        <h1 class="title">News.Fast.Pretty.Find <span class="accent">everything</span> you want!</h1>
         <div class="filters">
-            <input class="input" type="search" placeholder="Enter prhase you're looking for...">
             <div class="filters__source">
                 <h4>Source:</h4>
                 <select class="source" name="select">
-                    <option value="S1">S1</option>
-                    <option value="S2">S2</option>
-                    <option value="S3">S3</option>
-                    <option value="S4">S4</option>
+                    <option value="source" selected disabled>Select source...</option>
                 </select>
             </div>
             <div class="filters__country">
                 <h4>Country:</h4>
                 <select class="country" name="select">
-                    <option value="UA">UA</option>
-                    <option value="UK">UK</option>
-                    <option value="GR">GR</option>
-                    <option value="USA">USA</option>
+                    <option value="country" selected disabled>Select country...</option>
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="US">USA</option>
+                    <option value="Germany">Germany</option>
                 </select>
             </div>
-            <!-- <div class="filters__category">
-                <h4>Category:</h4>
-                <select class="category" name="select">
-                    <option value="Sports">Sports</option>
-                    <option value="Politics">Politics</option>
-                    <option value="Health">Health</option>
-                    <option value="Economics">Economics</option>
-                </select>
-            </div> -->
-            <button class="find__btn">Find!</button>
+            <div class="filters__range">
+                <h3 class="show-text">Articles to show:<span class="outputcounter">50</span></h3>
+                <input class="counter" type="range" min="1" max="100" step="1" value="50">
+            </div>
+            <input class="input" type="search" placeholder="Enter phrase you're looking for...">
+            <button class="find__btn">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.1666 36.25C9.74998 36.25 2.08331 28.5834 2.08331 19.1667C2.08331 9.75004 9.74998 2.08337 19.1666 2.08337C28.5833 2.08337 36.25 9.75004 36.25 19.1667C36.25 28.5834 28.5833 36.25 19.1666 36.25ZM19.1666 4.58337C11.1166 4.58337 4.58331 11.1334 4.58331 19.1667C4.58331 27.2 11.1166 33.75 19.1666 33.75C27.2166 33.75 33.75 27.2 33.75 19.1667C33.75 11.1334 27.2166 4.58337 19.1666 4.58337Z" fill="#0261c6fe"/>
+                    <path d="M36.6667 37.9167C36.35 37.9167 36.0334 37.8 35.7834 37.55L32.45 34.2167C31.9667 33.7334 31.9667 32.9334 32.45 32.45C32.9334 31.9667 33.7334 31.9667 34.2167 32.45L37.55 35.7834C38.0334 36.2667 38.0334 37.0667 37.55 37.55C37.3 37.8 36.9834 37.9167 36.6667 37.9167Z" fill="#000"/>
+                </svg>
+                Show filters
+            </button>
+            <button class="search__btn">Find!</button>
+            <button class="close__btn">&#10010</button>
         </div>
     </header>
     <main class="main">
