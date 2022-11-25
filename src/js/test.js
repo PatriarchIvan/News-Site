@@ -441,13 +441,17 @@ const copyData = (objectCopy, objectSrc) => {
 };
 
 const initSourceList = (list, articles) => {
-    for(let i = 0; i < articlesCounter; i++) {
-        console.log(articles[i].source.name);
-    //     console.log(articles);
-        // const listItem = document.createElement('option');
-        // listItem.setAttribute('value', articles[i].source.name);
-        // listItem.innerText = articles[i].source.name;
-        // list.append(listItem);
+    const arr = [];
+    for (let i = 0; i < articlesCounter; i++) {
+        arr.push(articles[i].source.name);
+    }
+    const set = new Set(arr);
+    const result = Array.from(set);
+    for (let i = 0; i < result.length; i++) {
+        const listItem = document.createElement('option');
+        listItem.setAttribute('value', result[i]);
+        listItem.innerText = result[i];
+        list.append(listItem);
     }
 }
 
@@ -490,14 +494,6 @@ class NewsBlock {
             `;
             main.append(elem);
         }
-        // if (main.children.length+1 != this.counter) {
-        //     main.length == this.counter
-        //     console.log(typeof(main));
-        //     console.log(this.counter - main.children.length);
-        // for(let i = 0; i <= this.counter - main.children.length+1; i++){
-        //     console.log("OOP" + i);
-        // }
-        // }
     }
 }
 
@@ -506,17 +502,16 @@ const clearPage = (parent) => {
         parent.lastChild.remove();
     }
 }
-// const initPage = () => new NewsBlock(copyObject).render();
 
-const initPage = () => {
-    const url = 'https://newsapi.org/v2/everything?' +
-        'q=Apple&' +
-        `from=${new Date()}&` +
-        'sortBy=popularity&' +
-        'apiKey=239aedc5071947fdb8f0ce856f541bfb';
-    
-    const request = new Request(url);
-    fetch(request)
+const makeRequest = () => {
+    // const url = 'https://newsapi.org/v2/everything?' +
+    //     'q=Apple&' +
+    //     `from=${new Date()}&` +
+    //     'sortBy=popularity&' +
+    //     'apiKey=239aedc5071947fdb8f0ce856f541bfb';
+
+    // const request = new Request(url);
+    // fetch(request)
     //     .then(response => response.json())
     //     .then(response => copyData(copyObject, response))
     //     .then(() => new NewsBlock(copyObject).render())
@@ -524,6 +519,16 @@ const initPage = () => {
     //     .then(console.log('Fetch Completed'))
     //     .then(console.log(copyObject))
     //     return copyObject;
+}
+
+// const initPage = () => new NewsBlock(copyObject).render();
+
+const initPage = () => {
+    makeRequest();
+    copyData(copyObject, testArticles);
+    initSourceList(sourceList, copyObject.articles);
+    new NewsBlock(copyObject).render();
+
 }
 
 // let url = 'https://newsapi.org/v2/everything?' +
@@ -574,9 +579,5 @@ inputCounter.addEventListener('change', () => {
     return articlesCounter;
 });
 
-
-// copyData(copyObject, testArticles);
-initSourceList(sourceList, copyObject.articles);
-new NewsBlock(copyObject);
 console.log(copyObject);
 initPage();
