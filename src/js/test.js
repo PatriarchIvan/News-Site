@@ -4,7 +4,7 @@ const testArticles = {
     "articles": [{
             "source": {
                 "id": null,
-                "name": "Seeking Alpha"
+                "name": "Seeking Alpha3"
             },
             "author": "Rida Morwa",
             "title": "Oil And Gas: Private Equity Backs Up The Truck",
@@ -17,7 +17,7 @@ const testArticles = {
         {
             "source": {
                 "id": null,
-                "name": "Bleeding Cool News"
+                "name": "Bleeding Cool News65"
             },
             "author": "Rich Johnston",
             "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
@@ -437,7 +437,7 @@ const copyData = (objectCopy, objectSrc) => {
     for (let key in objectSrc) {
         objectCopy[key] = objectSrc[key];
     }
-    return objectCopy;
+    return objectCopy
 };
 
 const initSourceList = (list, articles) => {
@@ -503,50 +503,47 @@ const clearPage = (parent) => {
     }
 }
 
-const makeRequest = () => {
+const API = 'https://newsapi.org/v2/everything?' +
+    `from=${new Date()}&` +
+    'sortBy=popularity&' +
+    'apiKey=239aedc5071947fdb8f0ce856f541bfb';
+
+
+const makeRequest = (url) => {
+
+    // let urlCountry = 'https://newsapi.org/v2/top-headlines?' +
+    //       'country=us&' +
+    //       'apiKey=239aedc5071947fdb8f0ce856f541bfb';
     // const url = 'https://newsapi.org/v2/everything?' +
     //     'q=Apple&' +
     //     `from=${new Date()}&` +
     //     'sortBy=popularity&' +
     //     'apiKey=239aedc5071947fdb8f0ce856f541bfb';
 
-    // const request = new Request(url);
-    // fetch(request)
-    //     .then(response => response.json())
-    //     .then(response => copyData(copyObject, response))
-    //     .then(() => new NewsBlock(copyObject).render())
-    //     .then(initSourceList(sourceList, copyObject.articles))
-    //     .then(console.log('Fetch Completed'))
-    //     .then(console.log(copyObject))
-    //     return copyObject;
+    const request = new Request(url);
+    fetch(request)
+        .then(response => response.json())
+        .then(json => {
+            copyData(copyObject, json)
+            console.log(copyObject);
+            return copyObject;
+        })
+        .then(object => initSourceList(sourceList, object.articles))
+        .then(() => new NewsBlock(copyObject).render())
+        .then(console.log('Fetch Completed'))
+        .catch(error => console.log(error))
+    return copyObject;
 }
-
-// const initPage = () => new NewsBlock(copyObject).render();
 
 const initPage = () => {
-    makeRequest();
-    copyData(copyObject, testArticles);
-    initSourceList(sourceList, copyObject.articles);
-    new NewsBlock(copyObject).render();
-
+    makeRequest(API);
 }
 
-// let url = 'https://newsapi.org/v2/everything?' +
-//     'q=Apple&' +
-//     `from=${new Date()}&` +
-//     'sortBy=popularity&' +
-//     'apiKey=239aedc5071947fdb8f0ce856f541bfb';
-
-// const request = new Request(url);
-// fetch(request)
-//     .then(response => response.json())
-//     .then(data => copy(data))
-//     .then(data => new NewsBlock(data, 250).render())
-//     .then(console.log('Fetch Completed'));
-
-// copyData(copyObject, testArticles);
-// initSourceList(sourceList, copyObject.articles);
-
+const countryCheck = () => {
+    if (input.value === '' && sourceList.length === 1 && countryList.value != 'country') {
+        return country = countryList.value;
+    }
+}
 
 btnFilter.addEventListener('click', () => {
     filtersMenu.classList.remove('filters__hide');
@@ -563,21 +560,36 @@ btnClose.addEventListener('click', () => {
 })
 
 btnSearch.addEventListener('click', () => {
-    clearPage(main);
-    initSourceList(sourceList, copyObject.articles);
-    clearList(sourceList);
-    initPage();
+    countryCheck();
+    if (input.value === '' && sourceList.length === 1 && countryList.value != 'country') {
+        makeRequest('https://newsapi.org/v2/top-headlines?' +
+            `country=${country}&` +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb');
+    }
+    if (input.value !== '') {
+        makeRequest('https://newsapi.org/v2/everything?' +
+            `q=${input.value}&` +
+            `from=${new Date()}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb');
+    }
+    if (sourceList.length > 1) {
+        makeRequest(
+            ('https://newsapi.org/v2/everything?' +
+            `sources=${sourceList.value}` +
+            // `q=${input.value}&` +
+            `from=${new Date()}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb')
+        )
+    }
 })
 
 inputCounter.addEventListener('change', () => {
     articlesCounter = inputCounter.value;
     outputCounter.textContent = inputCounter.value;
-    // clearPage(main);
-    // clearList(sourceList);
-    // initSourceList(sourceList, copyObject.articles);
-    // initPage();
     return articlesCounter;
 });
 
-console.log(copyObject);
-initPage();
+// initPage();
+// console.log(copyObject);

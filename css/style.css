@@ -78,14 +78,17 @@ h1, h2, h3, h4, h5, h6 {
   0% {
     fill: rgba(0, 123, 255, 0.9960784314);
   }
-  25% {
+  13% {
     fill: rgba(2, 97, 198, 0.9960784314);
+  }
+  26% {
+    fill: rgba(64, 27, 228, 0.9960784314);
   }
   50% {
-    fill: rgba(8, 87, 171, 0.5019607843);
+    fill: rgba(101, 74, 224, 0.9960784314);
   }
   75% {
-    fill: rgba(2, 97, 198, 0.9960784314);
+    fill: rgba(8, 87, 171, 0.5019607843);
   }
   100% {
     fill: rgba(0, 123, 255, 0.9960784314);
@@ -96,14 +99,17 @@ h1, h2, h3, h4, h5, h6 {
   0% {
     fill: rgba(0, 123, 255, 0.9960784314);
   }
-  25% {
+  13% {
     fill: rgba(2, 97, 198, 0.9960784314);
+  }
+  26% {
+    fill: rgba(64, 27, 228, 0.9960784314);
   }
   50% {
-    fill: rgba(8, 87, 171, 0.5019607843);
+    fill: rgba(101, 74, 224, 0.9960784314);
   }
   75% {
-    fill: rgba(2, 97, 198, 0.9960784314);
+    fill: rgba(8, 87, 171, 0.5019607843);
   }
   100% {
     fill: rgba(0, 123, 255, 0.9960784314);
@@ -162,7 +168,7 @@ body {
   visibility: hidden;
   left: -100%;
   z-index: 1;
-  background: #A0A6A7;
+  background: rgba(160, 166, 167, 0.2509803922);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -190,17 +196,24 @@ body {
   transition: 1.5s all ease;
   left: -100%;
 }
-.header .filters__source, .header .filters__country, .header .filters__category {
+.header .filters__source, .header .filters__country {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.header .filters__source select, .header .filters__country select, .header .filters__category select {
+.header .filters__source select, .header .filters__country select {
+  margin-left: 5px;
   font-size: 22px;
+  height: 40px;
   text-align: center;
-  max-height: 30vh;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
-.header .filters__source select:focus, .header .filters__country select:focus, .header .filters__category select:focus {
+.header .filters__source select:focus, .header .filters__source select:active, .header .filters__country select:focus, .header .filters__country select:active {
   background: rgba(0, 123, 255, 0.9960784314);
 }
 .header .filters .find__btn {
@@ -218,13 +231,41 @@ body {
   font-size: 0.7rem;
   font-weight: 700;
 }
+.header .filters .find__btn::after {
+  content: "";
+  position: absolute;
+  top: 110%;
+  right: -100%;
+  height: 1px;
+  width: 100%;
+  opacity: 0;
+  background: #13c0f5;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.header .filters .find__btn:hover {
+  color: #13c0f5;
+}
+.header .filters .find__btn:hover::after {
+  opacity: 1;
+  right: 0%;
+}
 .header .filters .find__btn svg {
   width: 100px;
   height: 100px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.header .filters .find__btn svg:hover {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .header .filters .find__btn svg path:first-of-type {
-  -webkit-animation: animateBtn 2s infinite ease-in-out;
-          animation: animateBtn 2s infinite ease-in-out;
+  -webkit-animation: animateBtn 3.1s infinite linear;
+          animation: animateBtn 3.1s infinite linear;
 }
 .header .filters .find__btn-hidden {
   -webkit-transition: 1.2s all ease-in;
@@ -233,6 +274,7 @@ body {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
   left: 20%;
+  top: 0%;
   opacity: 0;
 }
 .header .filters .find__btn-active {
@@ -276,6 +318,7 @@ body {
 }
 
 .main {
+  position: relative;
   padding: 40px 0;
   max-width: 1400px;
   margin: 0 auto;
