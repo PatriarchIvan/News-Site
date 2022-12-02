@@ -256,7 +256,11 @@ body {
                 color: red;
                 font-size: 0.6rem;
             }
-
+            & .source {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
         }
 
         & .img {

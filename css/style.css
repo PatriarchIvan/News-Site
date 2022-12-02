@@ -381,6 +381,9 @@ body {
   color: red;
   font-size: 0.6rem;
 }
+.article__content .author-src .source:hover {
+  cursor: pointer;
+}
 .article__content .img img {
   position: relative;
   bottom: 0;

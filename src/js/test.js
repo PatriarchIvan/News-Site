@@ -1,424 +1,3 @@
-const testArticles = {
-    "status": "ok",
-    "totalResults": 10864,
-    "articles": [{
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha3"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News65"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Seeking Alpha"
-            },
-            "author": "Rida Morwa",
-            "title": "Oil And Gas: Private Equity Backs Up The Truck",
-            "description": "The revenge of the “pariah” oil and gas will be costly on your wallet and chaotic for the economy. See our two quality picks yielding up to 7%.",
-            "url": "https://seekingalpha.com/article/4558722-oil-and-gas-private-equity-backs-up-the-truck",
-            "urlToImage": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1058274866/image_1058274866.jpg?io=getty-c-w750",
-            "publishedAt": "2022-11-21T16:00:00Z",
-            "content": "William_Potter\r\nCo-produced with \"Hidden Opportunities.\"\r\n Defunding hydrocarbon is a costly mistake\r\n The International Energy Forum has called on companies to raise investment in oil (USO) and natu… [+13819 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Bleeding Cool News"
-            },
-            "author": "Rich Johnston",
-            "title": "Elon Musk Tweets Milo Manara Artwork As Thirst Trap For Donald Trump",
-            "description": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has chosen to take advantage of the situation yet, he seems hap…",
-            "url": "https://bleedingcool.com/comics/elon-musk-tweets-milo-manara-artwork-as-thirst-trap-for-donald-trump/",
-            "urlToImage": "https://bleedingcool.com/wp-content/uploads/2022/11/91AcmPCsfOL-1200x628.jpg",
-            "publishedAt": "2022-11-21T15:57:13Z",
-            "content": "Elon Musk recently allowed the former President Of The United States, Donald Trump, back on Twitter, after he was banned for involvement with the January 6th insurrection movement. Not that Trump has… [+1894 chars]"
-        },
-    ]
-};
 const searchBlock = document.querySelector('.search');
 const input = document.querySelector('.input');
 const main = document.querySelector('.main');
@@ -427,31 +6,37 @@ const outputCounter = document.querySelector('.outputcounter');
 const filtersMenu = document.querySelector('.filters');
 const sourceList = document.querySelector('.source');
 const countryList = document.querySelector('.country');
-const copyObject = {};
 const btnFilter = document.querySelector('.find__btn');
 const btnClose = document.querySelector('.close__btn');
 const btnSearch = document.querySelector('.search__btn');
-let articlesCounter = 4;
+// const today = new Date().toDateString("yyyyMMdd");
+let articlesCounter = 50;
 
-const copyData = (objectCopy, objectSrc) => {
-    for (let key in objectSrc) {
-        objectCopy[key] = objectSrc[key];
-    }
-    return objectCopy
-};
 
 const initSourceList = (list, articles) => {
     const arr = [];
+
     for (let i = 0; i < articlesCounter; i++) {
-        arr.push(articles[i].source.name);
+        if (articles.length === 0) {
+            break;
+        } else {
+            arr.push(articles[i].source.name);
+        }
     }
+
     const set = new Set(arr);
     const result = Array.from(set);
+
     for (let i = 0; i < result.length; i++) {
-        const listItem = document.createElement('option');
-        listItem.setAttribute('value', result[i]);
-        listItem.innerText = result[i];
-        list.append(listItem);
+
+        if (arr.length === 0) {
+            list.setAttribute('value', 'select');
+        } else {
+            const listItem = document.createElement('option');
+            listItem.setAttribute('value', result[i]);
+            listItem.innerText = result[i];
+            list.append(listItem);
+        }
     }
 }
 
@@ -479,13 +64,14 @@ class NewsBlock {
                 <h3 class="title">${this.article.articles[i].title}</h3>
             </div>
             <div class="article__suptitle">
-                <p class="desc">${this.article.articles[i].description}</p>
+                <p class="desc">${this.article.articles[i].description}
                 <a class="link" href="${this.article.articles[i].url}">Link to this article</a>
+                </p>
             </div>
             <div class="article__content">
             <div class=author-src>
                 <h3 class="author"><span class="italic">Author: </span>${this.article.articles[i].author}</h3>
-                <h4 class="source"><span class="italic">Source: </span>${this.article.articles[i].source.name}</h4>
+                <h4 class="source src_link"><span class="italic">Source: </span>${this.article.articles[i].source.name}</h4>
             </div>
                 <div class="img">
                     <img src=${this.article.articles[i].urlToImage} alt="article image">
@@ -497,52 +83,118 @@ class NewsBlock {
     }
 }
 
+const checkSource = (source) => {
+    if (source.value.match(/(?:\.[a-z\.]+[\/]?)\w+/g, '')) {
+        makeRequest('https://newsapi.org/v2/everything?' +
+            `domains=${sourceList.value.toLowerCase().replace(/\s/g, '-')}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb'
+        )
+    } else {
+        makeRequest('https://newsapi.org/v2/everything?' +
+            `sources=${source.value.toLowerCase().replace(/\s/g, '-')}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb'
+        )
+    }
+}
+
 const clearPage = (parent) => {
     while (parent.lastChild) {
         parent.lastChild.remove();
     }
 }
 
+const checkInput = () => {
+    if (input.value === '' && sourceList.value === 'source' && countryList.value != 'country') {
+        // console.log('country ONLY fetch')
+        makeRequest('https://newsapi.org/v2/top-headlines?' +
+            `country=${country}&` +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb');
+    }
+    if (input.value !== '' && sourceList.value === 'source' && countryList.value === 'country') {
+        makeRequest('https://newsapi.org/v2/everything?' +
+            `q=${input.value.trim().toLowerCase()}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb');
+    }
+    if (sourceList.value !== 'source' && input.value === '' && countryList.value === 'country') {
+        checkSource(sourceList);
+    }
+    if (sourceList.value !== 'source' && input.value !== '' && countryList.value != 'country') {
+        // console.log('All three exists')
+        makeRequest('https://newsapi.org/v2/top-headlines?' +
+            `country=${country}&` +
+            `sources=${source.value.toLowerCase().replace(/\s/g, '-')}&` +
+            `q=${input.value.trim().toLowerCase()}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb'
+        )
+    }
+    if (sourceList.value !== 'source' && input.value === '' && countryList.value != 'country') {
+        makeRequest('https://newsapi.org/v2/top-headlines?' +
+            `sources=${source.value.toLowerCase().replace(/\s/g, '-')}&` +
+            `country=${country}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb'
+        )
+
+    }
+    if (sourceList.value === 'source' && input.value !== '' && countryList.value !== 'country') {
+        // console.log('QUOTE AND COUNTRY FETCH')
+        makeRequest('https://newsapi.org/v2/top-headlines?' +
+            `country=${country}&` +
+            `q=${input.value.trim().toLowerCase()}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb'
+        )
+    }
+    if (sourceList.value !== 'source' && input.value !== '' && countryList.value === 'country') {
+        // console.log('SOURCE AND QUOTE FETCH')
+        makeRequest('https://newsapi.org/v2/top-headlines?' +
+            `sources=${sourceList.value.toLowerCase().replace(/\s/g, '-')}&` +
+            `q=${input.value.trim().toLowerCase()}&` +
+            'sortBy=popularity&' +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb'
+        )
+    }
+
+}
+
 const API = 'https://newsapi.org/v2/everything?' +
-    `from=${new Date()}&` +
+    'q=Apple&' +
     'sortBy=popularity&' +
     'apiKey=239aedc5071947fdb8f0ce856f541bfb';
 
-
 const makeRequest = (url) => {
-
-    // let urlCountry = 'https://newsapi.org/v2/top-headlines?' +
-    //       'country=us&' +
-    //       'apiKey=239aedc5071947fdb8f0ce856f541bfb';
-    // const url = 'https://newsapi.org/v2/everything?' +
-    //     'q=Apple&' +
-    //     `from=${new Date()}&` +
-    //     'sortBy=popularity&' +
-    //     'apiKey=239aedc5071947fdb8f0ce856f541bfb';
-
     const request = new Request(url);
     fetch(request)
         .then(response => response.json())
         .then(json => {
-            copyData(copyObject, json)
-            console.log(copyObject);
-            return copyObject;
+            console.log(json);
+            console.log(url);
+            if (json.articles.length === 0) {
+                const errorMsg = 'Nothing to show here...Try another filter options';
+                const errorSpan = document.createElement('span');
+                errorSpan.textContent = errorMsg;
+                clearPage(main);
+                main.append(errorSpan);
+            } else {
+                if (json.articles.length < articlesCounter) {
+                    articlesCounter = json.articles.length;
+                    clearList(sourceList);
+                    initSourceList(sourceList, json.articles);
+                    clearPage(main);
+                    new NewsBlock(json).render();
+                }
+                clearList(sourceList);
+                initSourceList(sourceList, json.articles);
+                clearPage(main);
+                new NewsBlock(json).render();
+            }
         })
-        .then(object => initSourceList(sourceList, object.articles))
-        .then(() => new NewsBlock(copyObject).render())
         .then(console.log('Fetch Completed'))
         .catch(error => console.log(error))
-    return copyObject;
-}
-
-const initPage = () => {
-    makeRequest(API);
-}
-
-const countryCheck = () => {
-    if (input.value === '' && sourceList.length === 1 && countryList.value != 'country') {
-        return country = countryList.value;
-    }
 }
 
 btnFilter.addEventListener('click', () => {
@@ -560,29 +212,9 @@ btnClose.addEventListener('click', () => {
 })
 
 btnSearch.addEventListener('click', () => {
-    countryCheck();
-    if (input.value === '' && sourceList.length === 1 && countryList.value != 'country') {
-        makeRequest('https://newsapi.org/v2/top-headlines?' +
-            `country=${country}&` +
-            'apiKey=239aedc5071947fdb8f0ce856f541bfb');
-    }
-    if (input.value !== '') {
-        makeRequest('https://newsapi.org/v2/everything?' +
-            `q=${input.value}&` +
-            `from=${new Date()}&` +
-            'sortBy=popularity&' +
-            'apiKey=239aedc5071947fdb8f0ce856f541bfb');
-    }
-    if (sourceList.length > 1) {
-        makeRequest(
-            ('https://newsapi.org/v2/everything?' +
-            `sources=${sourceList.value}` +
-            // `q=${input.value}&` +
-            `from=${new Date()}&` +
-            'sortBy=popularity&' +
-            'apiKey=239aedc5071947fdb8f0ce856f541bfb')
-        )
-    }
+    checkInput();
+    sourceList.value = 'source';
+    countryList.value = 'country';
 })
 
 inputCounter.addEventListener('change', () => {
@@ -591,5 +223,28 @@ inputCounter.addEventListener('change', () => {
     return articlesCounter;
 });
 
-// initPage();
-// console.log(copyObject);
+sourceList.addEventListener('change', () => console.log('changed'));
+countryList.addEventListener('change', () => {
+    if (countryList.value != 'country') {
+        country = countryList.value;
+        return country;
+    }
+})
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('src_link')) {
+        if (e.target.textContent.match(/(?:\.[a-z\.]+[\/]?)\w+/g, '')) {
+            makeRequest('https://newsapi.org/v2/everything?' +
+                `domains=${e.target.textContent.replace(/Source:\s/g, '').toLowerCase().replace(/\s/g, '-')}&` +
+                'sortBy=popularity&' +
+                'apiKey=239aedc5071947fdb8f0ce856f541bfb')
+        } else {
+            makeRequest('https://newsapi.org/v2/everything?' +
+                `sources=${e.target.textContent.replace(/Source:\s/g, '').toLowerCase().replace(/\s/g, '-')}&` +
+                'sortBy=popularity&' +
+                'apiKey=239aedc5071947fdb8f0ce856f541bfb')
+        }
+
+    }
+})
+makeRequest(API)
