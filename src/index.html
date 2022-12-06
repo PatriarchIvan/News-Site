@@ -13,12 +13,6 @@
     <header class="header">
         <h1 class="title">News.Fast.Pretty.Find <span class="accent">everything</span> you want!</h1>
         <div class="filters">
-            <div class="filters__source">
-                <h4>Source:</h4>
-                <select class="source" name="select">
-                    <option value="source" selected disabled>Source not filtered</option>
-                </select>
-            </div>
             <div class="filters__country">
                 <h4>Country:</h4>
                 <select class="country" name="select">
@@ -32,11 +26,30 @@
                     <option value="ca">Canada</option>
                 </select>
             </div>
+            <div class="filters__category">
+                <h4>Category:</h4>
+                <select class="category" name="select">
+                    <option value="category" selected disabled>Category not filtered</option>
+                    <option value="business">Business</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="general">General</option>
+                    <option value="health">Health</option>
+                    <option value="science">Science</option>
+                    <option value="sports">Sports</option>
+                    <option value="technology">Technology</option>
+                </select>
+            </div>
+            <div class="filters__source">
+                <h4>Source:</h4>
+                <select class="source" name="select">
+                    <option value="source" selected disabled>Source not filtered</option>
+                </select>
+            </div>
             <div class="filters__range">
                 <h3 class="show-text">Articles to show:<span class="outputcounter">50</span></h3>
                 <input class="counter" type="range" min="1" max="100" step="1" value="50">
             </div>
-            <input class="input" type="search" placeholder="Enter phrase you're looking for...">
+            <input class="input" type="search" placeholder="Enter phrase...">
             <button class="find__btn">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.1666 36.25C9.74998 36.25 2.08331 28.5834 2.08331 19.1667C2.08331 9.75004 9.74998 2.08337 19.1666 2.08337C28.5833 2.08337 36.25 9.75004 36.25 19.1667C36.25 28.5834 28.5833 36.25 19.1666 36.25ZM19.1666 4.58337C11.1166 4.58337 4.58331 11.1334 4.58331 19.1667C4.58331 27.2 11.1166 33.75 19.1666 33.75C27.2166 33.75 33.75 27.2 33.75 19.1667C33.75 11.1334 27.2166 4.58337 19.1666 4.58337Z" fill="#0261c6fe"/>
@@ -50,6 +63,7 @@
     </header>
     <main class="main">
     </main>
+    <button class="scroll">&#8593</button>
     <script src="./js/test.js"></script>
 </body>
 

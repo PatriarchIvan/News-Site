@@ -5,6 +5,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:regular,600,100italic,300italic,500italic);
 
 body {
+    position: relative;
     font-size: 22px;
     background: #b1b09556;
     font-family: 'Raleway', sans-serif;
@@ -17,6 +18,8 @@ body {
     padding: 0 0 70px 0;
 
     .title {
+        max-width: 1600px;
+        margin: 0 auto;
         padding: 150px 0 70px 0;
         font-size: 2.5rem;
         font-weight: 600;
@@ -25,8 +28,11 @@ body {
 
     .input {
         border-radius: 10px;
+        // margin-left: 25%;
+        flex-basis: 50%;
+        margin-top: 20px;
         padding: 5px 5px 5px 10px;
-        width: 30%;
+        // flex-basis: 75%;
         background: #c7ced0;
         font-size: 1rem;
 
@@ -41,6 +47,9 @@ body {
         }
     }
 
+    .categories {
+        max-width: 15%;
+    }
 
     & .filters {
         position: relative;
@@ -54,8 +63,6 @@ body {
         padding: 40px;
         justify-content: space-between;
         align-items: center;
-
-
 
         &__active {
             visibility: visible;
@@ -71,12 +78,16 @@ body {
 
 
         &__source,
-        &__country {
-            display: flex;
+        &__country,
+        &__category,
+        &__range {
+            // display: flex;
+            flex-basis: 25%;
+            text-align: center;
             align-items: center;
 
             select {
-                margin-left: 5px;
+                margin-top: 10px;
                 font-size: 22px;
                 height: 40px;
                 text-align: center;
@@ -121,7 +132,6 @@ body {
                 color: #13c0f5;
 
                 &::after {
-
                     opacity: 1;
                     right: 0%;
                     // transform: translateX(-50%);        
@@ -151,9 +161,9 @@ body {
             & path {}
 
             &-hidden {
-                transition: 1.2s all ease-in;
+                transition: 1.0s all ease-in;
                 transform: rotateY(-180deg);
-                left: 20%;
+                left: -20%;
                 top: 0%;
                 opacity: 0;
             }
@@ -166,6 +176,7 @@ body {
         }
 
         .search__btn {
+            flex-basis: 30%;
             width: 100px;
             font-size: 0.7rem;
             height: 40px;
@@ -200,6 +211,7 @@ body {
 .main {
     position: relative;
     padding: 40px 0;
+    z-index: 1;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
@@ -221,6 +233,11 @@ body {
     justify-content: space-between;
     border-radius: 1.5%;
 
+    // @media (max-width: 600px) {
+        // max-width: 100%;
+        // padding: 10px;
+    // }
+
     &__header {
         text-align: left;
         padding: 5px 20px 5px 5px;
@@ -238,6 +255,17 @@ body {
         &::first-line {
             font-style: italic;
         }
+    }
+
+    & .img {
+        & img {
+            position: relative;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
     }
 
     &__content {
@@ -263,16 +291,16 @@ body {
             }
         }
 
-        & .img {
-            & img {
-                position: relative;
-                bottom: 0;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
+        // & .img {
+        //     & img {
+        //         position: relative;
+        //         bottom: 0;
+        //         height: 100%;
+        //         width: 100%;
+        //         object-fit: cover;
+        //     }
 
-        }
+        // }
     }
 
     &__suptitle {
@@ -300,13 +328,33 @@ body {
         width: 95%;
     }
 
-
 }
 
 .italic {
     font-style: italic;
 }
 
+.scroll {
+    position: fixed;
+    display: none;
+    content: '';
+    z-index: 2;
+    background: #292D32;
+    opacity: 0.6;
+    border-radius: 50%;
+    width: 40px;
+    font-size: 0.7rem;
+    color: #000;
+    font-weight: 900;
+    transform: translate(-50%, -50%);
+    height: 40px;
+    left: 98%;
+    bottom: 10%;
+    transition: all 0.4s ease;
+    &:hover {
+        background: #007bfffe;
+    }
+}
 
 .desc {}
 

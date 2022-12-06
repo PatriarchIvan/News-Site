@@ -6,12 +6,12 @@ const outputCounter = document.querySelector('.outputcounter');
 const filtersMenu = document.querySelector('.filters');
 const sourceList = document.querySelector('.source');
 const countryList = document.querySelector('.country');
+const categoryList = document.querySelector('.category');
 const btnFilter = document.querySelector('.find__btn');
 const btnClose = document.querySelector('.close__btn');
 const btnSearch = document.querySelector('.search__btn');
-// const today = new Date().toDateString("yyyyMMdd");
-let articlesCounter = 50;
-
+const btnScroll = document.querySelector('.scroll');
+let articlesCounter = 15;
 
 const initSourceList = (list, articles) => {
     const arr = [];
@@ -28,7 +28,6 @@ const initSourceList = (list, articles) => {
     const result = Array.from(set);
 
     for (let i = 0; i < result.length; i++) {
-
         if (arr.length === 0) {
             list.setAttribute('value', 'select');
         } else {
@@ -63,21 +62,19 @@ class NewsBlock {
             <div class="article__header">
                 <h3 class="title">${this.article.articles[i].title}</h3>
             </div>
+            <div class="img">
+                <img src=${this.article.articles[i].urlToImage} alt="article image">
+            </div>
             <div class="article__suptitle">
-                <p class="desc">${this.article.articles[i].description}
+                <p class="desc">${this.article.articles[i].description}</p>
                 <a class="link" href="${this.article.articles[i].url}">Link to this article</a>
-                </p>
             </div>
             <div class="article__content">
             <div class=author-src>
                 <h3 class="author"><span class="italic">Author: </span>${this.article.articles[i].author}</h3>
                 <h4 class="source src_link"><span class="italic">Source: </span>${this.article.articles[i].source.name}</h4>
             </div>
-                <div class="img">
-                    <img src=${this.article.articles[i].urlToImage} alt="article image">
-                </div>
-            </div>
-            `;
+            </div>`;
             main.append(elem);
         }
     }
@@ -106,40 +103,52 @@ const clearPage = (parent) => {
 }
 
 const checkInput = () => {
-    if (input.value === '' && sourceList.value === 'source' && countryList.value != 'country') {
-        // console.log('country ONLY fetch')
+    if (input.value === '' && sourceList.value === 'source' && countryList.value === 'country' && categoryList.value != 'category') {
+        makeRequest('https://newsapi.org/v2/top-headlines?' +
+            `category=${categoryList.value.toLowerCase()}&` +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb');
+    }
+
+    if (input.value === '' && sourceList.value === 'source' && countryList.value != 'country' && categoryList.value === 'category') {
         makeRequest('https://newsapi.org/v2/top-headlines?' +
             `country=${country}&` +
             'apiKey=239aedc5071947fdb8f0ce856f541bfb');
     }
-    if (input.value !== '' && sourceList.value === 'source' && countryList.value === 'country') {
+    if (input.value !== '' && sourceList.value === 'source' && countryList.value === 'country' && categoryList.value === 'category') {
         makeRequest('https://newsapi.org/v2/everything?' +
             `q=${input.value.trim().toLowerCase()}&` +
             'sortBy=popularity&' +
             'apiKey=239aedc5071947fdb8f0ce856f541bfb');
     }
-    if (sourceList.value !== 'source' && input.value === '' && countryList.value === 'country') {
+    if (sourceList.value !== 'source' && input.value === '' && countryList.value === 'country' && categoryList.value === 'category') {
         checkSource(sourceList);
     }
+    if (sourceList.value === 'source' && input.value === '' && countryList.value !== 'country' && categoryList.value !== 'category') {
+        makeRequest('https://newsapi.org/v2/top-headlines?' +
+            `country=${country}&` +
+            `category=${categoryList.value.toLowerCase()}&` +
+            'apiKey=239aedc5071947fdb8f0ce856f541bfb');
+    }
+
     if (sourceList.value !== 'source' && input.value !== '' && countryList.value != 'country') {
         // console.log('All three exists')
         makeRequest('https://newsapi.org/v2/top-headlines?' +
             `country=${country}&` +
-            `sources=${source.value.toLowerCase().replace(/\s/g, '-')}&` +
+            // `sources=${sourceList.value.toLowerCase().replace(/\s/g, '-')}&` +
             `q=${input.value.trim().toLowerCase()}&` +
             'sortBy=popularity&' +
             'apiKey=239aedc5071947fdb8f0ce856f541bfb'
         )
     }
-    if (sourceList.value !== 'source' && input.value === '' && countryList.value != 'country') {
-        makeRequest('https://newsapi.org/v2/top-headlines?' +
-            `sources=${source.value.toLowerCase().replace(/\s/g, '-')}&` +
-            `country=${country}&` +
-            'sortBy=popularity&' +
-            'apiKey=239aedc5071947fdb8f0ce856f541bfb'
-        )
+    // if (sourceList.value !== 'source' && input.value === '' && countryList.value != 'country') {
+    //     makeRequest('https://newsapi.org/v2/top-headlines?' +
+    //         `sources=${sourceList.value.toLowerCase().replace(/\s/g, '-')}&` +
+    //         `country=${country}&` +
+    //         'sortBy=popularity&' +
+    //         'apiKey=239aedc5071947fdb8f0ce856f541bfb'
+    //     )
+    // }
 
-    }
     if (sourceList.value === 'source' && input.value !== '' && countryList.value !== 'country') {
         // console.log('QUOTE AND COUNTRY FETCH')
         makeRequest('https://newsapi.org/v2/top-headlines?' +
@@ -150,7 +159,6 @@ const checkInput = () => {
         )
     }
     if (sourceList.value !== 'source' && input.value !== '' && countryList.value === 'country') {
-        // console.log('SOURCE AND QUOTE FETCH')
         makeRequest('https://newsapi.org/v2/top-headlines?' +
             `sources=${sourceList.value.toLowerCase().replace(/\s/g, '-')}&` +
             `q=${input.value.trim().toLowerCase()}&` +
@@ -159,10 +167,14 @@ const checkInput = () => {
         )
     }
 
+    if (sourceList.value === 'source' && input.value === '' && countryList.value === 'country' && categoryList.value === 'category') {
+        makeRequest(API);
+    }
 }
 
 const API = 'https://newsapi.org/v2/everything?' +
     'q=Apple&' +
+    `from=${new Date()}` +
     'sortBy=popularity&' +
     'apiKey=239aedc5071947fdb8f0ce856f541bfb';
 
@@ -215,6 +227,7 @@ btnSearch.addEventListener('click', () => {
     checkInput();
     sourceList.value = 'source';
     countryList.value = 'country';
+    categoryList.value = 'category';
 })
 
 inputCounter.addEventListener('change', () => {
@@ -223,7 +236,6 @@ inputCounter.addEventListener('change', () => {
     return articlesCounter;
 });
 
-sourceList.addEventListener('change', () => console.log('changed'));
 countryList.addEventListener('change', () => {
     if (countryList.value != 'country') {
         country = countryList.value;
@@ -247,4 +259,35 @@ document.addEventListener('click', (e) => {
 
     }
 })
+
+
+
+// const getInnerHeight = () => {
+//     if (document.body.pageYOffset >= '600') {
+//         btnScroll.classList.add('scroll__visible');
+//     } else {
+//         btnScroll.classList.remove('scroll__visible')
+//     }
+// };
+
+// window.addEventListener('scroll', getInnerHeight);
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    btnScroll.style.display = "block";
+  } else {
+    btnScroll.style.display = "none";
+  }
+}
+
+btnScroll.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+});
+
+
+
 makeRequest(API)

@@ -116,6 +116,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 body {
+  position: relative;
   font-size: 22px;
   background: rgba(177, 176, 149, 0.337254902);
   font-family: "Raleway", sans-serif;
@@ -127,6 +128,8 @@ body {
   padding: 0 0 70px 0;
 }
 .header .title {
+  max-width: 1600px;
+  margin: 0 auto;
   padding: 150px 0 70px 0;
   font-size: 2.5rem;
   font-weight: 600;
@@ -134,8 +137,10 @@ body {
 }
 .header .input {
   border-radius: 10px;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  margin-top: 20px;
   padding: 5px 5px 5px 10px;
-  width: 30%;
   background: #c7ced0;
   font-size: 1rem;
 }
@@ -162,6 +167,9 @@ body {
 .header .input:focus::placeholder {
   color: #fff;
   content: "";
+}
+.header .categories {
+  max-width: 15%;
 }
 .header .filters {
   position: relative;
@@ -196,16 +204,16 @@ body {
   transition: 1.5s all ease;
   left: -100%;
 }
-.header .filters__source, .header .filters__country {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.header .filters__source, .header .filters__country, .header .filters__category, .header .filters__range {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
-.header .filters__source select, .header .filters__country select {
-  margin-left: 5px;
+.header .filters__source select, .header .filters__country select, .header .filters__category select, .header .filters__range select {
+  margin-top: 10px;
   font-size: 22px;
   height: 40px;
   text-align: center;
@@ -213,7 +221,7 @@ body {
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-.header .filters__source select:focus, .header .filters__source select:active, .header .filters__country select:focus, .header .filters__country select:active {
+.header .filters__source select:focus, .header .filters__source select:active, .header .filters__country select:focus, .header .filters__country select:active, .header .filters__category select:focus, .header .filters__category select:active, .header .filters__range select:focus, .header .filters__range select:active {
   background: rgba(0, 123, 255, 0.9960784314);
 }
 .header .filters .find__btn {
@@ -268,12 +276,12 @@ body {
           animation: animateBtn 3.1s infinite linear;
 }
 .header .filters .find__btn-hidden {
-  -webkit-transition: 1.2s all ease-in;
-  -o-transition: 1.2s all ease-in;
-  transition: 1.2s all ease-in;
+  -webkit-transition: 1s all ease-in;
+  -o-transition: 1s all ease-in;
+  transition: 1s all ease-in;
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
-  left: 20%;
+  left: -20%;
   top: 0%;
   opacity: 0;
 }
@@ -285,6 +293,8 @@ body {
   left: 150%;
 }
 .header .filters .search__btn {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
   width: 100px;
   font-size: 0.7rem;
   height: 40px;
@@ -320,6 +330,7 @@ body {
 .main {
   position: relative;
   padding: 40px 0;
+  z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
@@ -370,6 +381,14 @@ body {
 .article__header::first-line {
   font-style: italic;
 }
+.article .img img {
+  position: relative;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .article__content {
   width: 100%;
 }
@@ -383,14 +402,6 @@ body {
 }
 .article__content .author-src .source:hover {
   cursor: pointer;
-}
-.article__content .img img {
-  position: relative;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 .article__suptitle {
   padding: 5px;
@@ -417,6 +428,32 @@ body {
 
 .italic {
   font-style: italic;
+}
+
+.scroll {
+  position: fixed;
+  display: none;
+  content: "";
+  z-index: 2;
+  background: #292D32;
+  opacity: 0.6;
+  border-radius: 50%;
+  width: 40px;
+  font-size: 0.7rem;
+  color: #000;
+  font-weight: 900;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 40px;
+  left: 98%;
+  bottom: 10%;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.scroll:hover {
+  background: rgba(0, 123, 255, 0.9960784314);
 }
 
 .link {
