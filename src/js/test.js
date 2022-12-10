@@ -15,7 +15,7 @@ let articlesCounter = 15;
 
 const initSourceList = (list, articles) => {
     const arr = [];
-
+    // if (articles.length !== 0) articles.map((item) => ) 
     for (let i = 0; i < articlesCounter; i++) {
         if (articles.length === 0) {
             break;
@@ -129,28 +129,16 @@ const checkInput = () => {
             `category=${categoryList.value.toLowerCase()}&` +
             'apiKey=239aedc5071947fdb8f0ce856f541bfb');
     }
-
     if (sourceList.value !== 'source' && input.value !== '' && countryList.value != 'country') {
-        // console.log('All three exists')
         makeRequest('https://newsapi.org/v2/top-headlines?' +
             `country=${country}&` +
-            // `sources=${sourceList.value.toLowerCase().replace(/\s/g, '-')}&` +
+            `sources=${sourceList.value.toLowerCase().replace(/\s/g, '-')}&` +
             `q=${input.value.trim().toLowerCase()}&` +
             'sortBy=popularity&' +
             'apiKey=239aedc5071947fdb8f0ce856f541bfb'
         )
     }
-    // if (sourceList.value !== 'source' && input.value === '' && countryList.value != 'country') {
-    //     makeRequest('https://newsapi.org/v2/top-headlines?' +
-    //         `sources=${sourceList.value.toLowerCase().replace(/\s/g, '-')}&` +
-    //         `country=${country}&` +
-    //         'sortBy=popularity&' +
-    //         'apiKey=239aedc5071947fdb8f0ce856f541bfb'
-    //     )
-    // }
-
     if (sourceList.value === 'source' && input.value !== '' && countryList.value !== 'country') {
-        // console.log('QUOTE AND COUNTRY FETCH')
         makeRequest('https://newsapi.org/v2/top-headlines?' +
             `country=${country}&` +
             `q=${input.value.trim().toLowerCase()}&` +
@@ -166,14 +154,13 @@ const checkInput = () => {
             'apiKey=239aedc5071947fdb8f0ce856f541bfb'
         )
     }
-
     if (sourceList.value === 'source' && input.value === '' && countryList.value === 'country' && categoryList.value === 'category') {
         makeRequest(API);
     }
 }
 
 const API = 'https://newsapi.org/v2/everything?' +
-    'q=Apple&' +
+    'q=Ukraine&' +
     `from=${new Date()}` +
     'sortBy=popularity&' +
     'apiKey=239aedc5071947fdb8f0ce856f541bfb';
@@ -188,6 +175,7 @@ const makeRequest = (url) => {
             if (json.articles.length === 0) {
                 const errorMsg = 'Nothing to show here...Try another filter options';
                 const errorSpan = document.createElement('span');
+                errorSpan.classList.add('error');
                 errorSpan.textContent = errorMsg;
                 clearPage(main);
                 main.append(errorSpan);
@@ -228,6 +216,7 @@ btnSearch.addEventListener('click', () => {
     sourceList.value = 'source';
     countryList.value = 'country';
     categoryList.value = 'category';
+    input.value = '';
 })
 
 inputCounter.addEventListener('change', () => {
@@ -260,17 +249,6 @@ document.addEventListener('click', (e) => {
     }
 })
 
-
-
-// const getInnerHeight = () => {
-//     if (document.body.pageYOffset >= '600') {
-//         btnScroll.classList.add('scroll__visible');
-//     } else {
-//         btnScroll.classList.remove('scroll__visible')
-//     }
-// };
-
-// window.addEventListener('scroll', getInnerHeight);
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -287,7 +265,5 @@ btnScroll.addEventListener('click', () => {
         behavior: 'smooth',
     });
 });
-
-
 
 makeRequest(API)

@@ -1,0 +1,1 @@
+(()=>{"use strict";document.querySelector(".main"),new Date,console.log(15)})();
